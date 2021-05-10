@@ -1,20 +1,16 @@
 from PIL import Image
+
 img = Image.open("foto.jpeg")
 
-text = 'ss ananasz'
-text_hex = ''
-for i in text:
-    hex = bin(ord(i))[2:]
-    while len(hex)<7:
-        hex = '0' + hex;
-    text_hex += hex
-print(text_hex)
 
-
-
-#print(width,height,'kk')
-#img.putpixel((25, 45), (255, 0, 0)) # Изменяем цвет пикселя
-#print(img.getpixel((479, 319)))
+def text_to_ascii(text):
+    text_hex = ''
+    for i in text:
+        hex = bin(ord (i))[2:]
+        while len(hex) < 8:
+            hex = '0' + hex;
+        text_hex += hex
+    return text_hex
 
 
 def encode(img, text):
@@ -29,5 +25,4 @@ def encode(img, text):
             b = bin(pix[2])[2:-1]
             img.putpixel((i, j),(r, g, b))
 
-#encode(img,'ddd')
 
