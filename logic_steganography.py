@@ -20,23 +20,27 @@ def encode(img, text):
     i_text = 0
     for i in range(width):
         for j in range(height):
+
             pix = img.getpixel((i, j))
+
             try:
-                r = int(bin(pix[0])[2:-1] + text[i_text])
+                r = int(bin(pix[0])[2:-1] + text[i_text], 2)
+                i_text += 1
             except IndexError:
                 return img
-            i_text += 1
+
             try:
-                g = int(bin(pix[1])[2:-1] + text[i_text])
+                g = int(bin(pix[1])[2:-1] + text[i_text], 2)
+                i_text += 1
             except IndexError:
-                return img
-            i_text += 1
+                g = pix[1]
             try:
-                b = int(bin(pix[2])[2:-1] + text[i_text])
+                b = int(bin(pix[2])[2:-1] + text[i_text], 2)
+                i_text += 1
             except IndexError:
-                return img
-            i_text += 1
+                b = pix[2]
             img.putpixel((i, j), (r, g, b))
 
 
-encode(img, text_to_ascii('text'))
+img1 = encode(img, text_to_ascii('text'))
+img1.save("tmp.bmp", "BMP")

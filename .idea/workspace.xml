@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23d1e3a5-5a37-44ee-bb49-c520c43708cd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foto.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/foto.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic_steganography.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic_steganography.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
