@@ -1,6 +1,6 @@
 from PIL import Image
 
-img = Image.open("foto.jpeg")
+img = Image.open("foto.png")
 
 
 def text_to_ascii(text):
@@ -16,6 +16,7 @@ def text_to_ascii(text):
 def encode(img, text):
     print(text)
     size = img.size
+    print(size)
     width = size[0]
     height = size[1]
     i_text = 0
@@ -28,24 +29,21 @@ def encode(img, text):
                 r = int(bin(pix[0])[2:-1] + text[i_text], 2)
                 i_text += 1
             except IndexError:
-                r = 0
-                g = pix[1]
-                b = pix[2]
-                img.putpixel ((i, j), (r, g, b))
                 return (img, i_text)
 
             try:
                 g = int(bin(pix[1])[2:-1] + text[i_text], 2)
                 i_text += 1
             except IndexError:
-                g = 0
+                g = pix[1]
             try:
                 b = int(bin(pix[2])[2:-1] + text[i_text], 2)
                 i_text += 1
             except IndexError:
-                b = 0
+                b = pix[2]
 
             img.putpixel((i, j), (r, g, b))
+
 
 
 def decode(img):
@@ -79,5 +77,6 @@ def decode(img):
 text="My sister's name is Kitty. She is three. She is a nice funny little girl. I like to play with her. We play hide-and-seek and tag. Kitty has got many toys: dolls, balls, toy animals. We often play with her toys."
 
 img1 = encode(img, text_to_ascii(text))[0]
-img1.save("tmp.bmp", "BMP")
-print(decode(img1))
+img1.save("tmp.png")
+img2 = Image.open("tmp1.png")
+print(decode(img2))
